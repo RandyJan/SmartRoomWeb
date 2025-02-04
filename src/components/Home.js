@@ -1,9 +1,9 @@
 // src/pages/Home.js
 import './Home.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear,faSignOut,faArrowRight,faSmoking,faWater,faTemperature0 } from '@fortawesome/free-solid-svg-icons'; //
+import { faGear,faSignOut,faArrowRight,faSmoking,faWater,faTemperature0 } from '@fortawesome/free-solid-svg-icons'; 
 import Sidebar from './SideBar';
-import React, { useState } from 'react'; // Correct
+import React, { useState } from 'react';
 
 
 const Home = () => {
