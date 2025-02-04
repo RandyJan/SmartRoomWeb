@@ -1,9 +1,11 @@
 // src/pages/Home.js
 import './Home.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear,faSignOut,faArrowRight,faSmoking,faWater,faTemperature0 } from '@fortawesome/free-solid-svg-icons'; 
+import { faGear,faSignOut,faArrowRight,faSmoking,faWater,faTemperatureLow,faTemperature0 } from '@fortawesome/free-solid-svg-icons'; 
 import Sidebar from './SideBar';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 
 const Home = () => {
@@ -22,7 +24,8 @@ const Home = () => {
         <div className='topBarCont'>
             <div onClick={handleClick}><FontAwesomeIcon icon ={faGear} size='2x' /></div>
             <p>TERESA ORSINI HOMES</p>
-            <div><FontAwesomeIcon icon ={faSignOut} size='2x' /></div>
+            <div> <li><Link to="/login"><FontAwesomeIcon icon ={faSignOut} size='2x' /></Link></li>
+            </div>
         </div>
         <div className='homeBody'>
             <div className='sensorCard'>
@@ -32,7 +35,7 @@ const Home = () => {
                 </div>
               
                 <div className='sensors'>
-                <div> <FontAwesomeIcon icon ={faTemperature0} size='2x' /></div>
+                <div> <FontAwesomeIcon icon ={faTemperatureLow} size='2x' /></div>
                 <div>  <FontAwesomeIcon icon ={faWater} size='2x' /></div>
                 <div> <FontAwesomeIcon icon ={faSmoking} size='2x' /></div>
                 <div> <FontAwesomeIcon icon ={faArrowRight} size='2x' /></div>

@@ -1,7 +1,7 @@
 /* src/components/Sidebar.css */
 .sidebar {
     width: 200px;
-    height: 100vh;
+    height: 95.5vh;
     background-color: #333;
     color: white;
     padding: 20px;
@@ -14,7 +14,7 @@
     div{
         margin-left: 90%;
         font-size: 1.5vh;
-        :hover{
+        &:hover{
             color: #333;
             background-color: white;
             cursor: pointer;
