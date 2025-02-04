@@ -26,7 +26,11 @@ const Home = () => {
         </div>
         <div className='homeBody'>
             <div className='sensorCard'>
+                <div>
                 <h3>Room #</h3>
+                <p> room is on its fine state</p>      
+                </div>
+              
                 <div className='sensors'>
                 <div> Temp</div>
                 <div> hum</div>

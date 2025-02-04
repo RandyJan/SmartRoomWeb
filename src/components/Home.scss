@@ -45,15 +45,19 @@
         margin: 0;
         .sensorCard{
             width: 25vh;
-            height: 20vh;
+            height: 25vh;
             border: solid 1px lightgray;
             background-color: white;
             border-radius: 10px;
-            margin: 2px;
+            margin: 0 2px 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding: 0 1vh 1vh;
             align-items: center;
+            div{
+                text-align: center;
+            }
             .sensors{
                 // background-color: red;
                 display: flex;
@@ -67,7 +71,7 @@
                     border: solid 1px black;
                     height: 10vh;
                     width: 100%;
-                    margin:1px
+                    margin:1px;
                 }
             }
             .btn_view{
