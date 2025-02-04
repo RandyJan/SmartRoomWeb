@@ -1,7 +1,7 @@
 // src/pages/Home.js
 import './Home.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear,faSignOut } from '@fortawesome/free-solid-svg-icons'; //
+import { faGear,faSignOut,faArrowRight,faSmoking,faWater,faTemperature0 } from '@fortawesome/free-solid-svg-icons'; //
 import Sidebar from './SideBar';
 import React, { useState } from 'react'; // Correct
 
@@ -32,20 +32,59 @@ const Home = () => {
                 </div>
               
                 <div className='sensors'>
-                <div> Temp</div>
-                <div> hum</div>
-                <div> Smoke</div>
-                <div> motion</div>
+                <div> <FontAwesomeIcon icon ={faTemperature0} size='2x' /></div>
+                <div>  <FontAwesomeIcon icon ={faWater} size='2x' /></div>
+                <div> <FontAwesomeIcon icon ={faSmoking} size='2x' /></div>
+                <div> <FontAwesomeIcon icon ={faArrowRight} size='2x' /></div>
                 </div>
                 <div className='btn_view'><p>View</p> </div>
             </div>
             <div className='sensorCard'>
+                <div>
+                <h3>Room #</h3>
+                <p> room is on its fine state</p>      
+                </div>
+              
+                <div className='sensors'>
+                <div> <FontAwesomeIcon icon ={faTemperature0} size='2x' /></div>
+                <div>  <FontAwesomeIcon icon ={faWater} size='2x' /></div>
+                <div> <FontAwesomeIcon icon ={faSmoking} size='2x' /></div>
+                <div> <FontAwesomeIcon icon ={faArrowRight} size='2x' /></div>
+                </div>
+                <div className='btn_view'><p>View</p> </div>
             </div>
             <div className='sensorCard'>
+                <div>
+                <h3>Room #</h3>
+                <p> room is on its fine state</p>      
+                </div>
+              
+                <div className='sensors'>
+                <div> <FontAwesomeIcon icon ={faTemperature0} size='2x' /></div>
+                <div>  <FontAwesomeIcon icon ={faWater} size='2x' /></div>
+                <div> <FontAwesomeIcon icon ={faSmoking} size='2x' /></div>
+                <div> <FontAwesomeIcon icon ={faArrowRight} size='2x' /></div>
+                </div>
+                <div className='btn_view'><p>View</p> </div>
             </div>
             <div className='sensorCard'>
-            </div>  <div className='sensorCard'>
+                <div>
+                <h3>Room #</h3>
+                <p> room is on its fine state</p>      
+                </div>
+              
+                <div className='sensors'>
+                <div> <FontAwesomeIcon icon ={faTemperature0} size='2x' /></div>
+                <div>  <FontAwesomeIcon icon ={faWater} size='2x' /></div>
+                <div> <FontAwesomeIcon icon ={faSmoking} size='2x' /></div>
+                <div> <FontAwesomeIcon icon ={faArrowRight} size='2x' /></div>
+                </div>
+                <div className='btn_view'><p>View</p> </div>
             </div>
+           
+           
+            
+           
         </div>
 
   </div>

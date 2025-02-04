@@ -25,6 +25,8 @@ const Sidebar = ({a=false,onClose}) => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/settings">Settings</Link></li>
         <li><Link to="/logs">Logs</Link></li>
+        <li><Link to="/login">Log in</Link></li>
+
       </ul>
     </div>
   );
