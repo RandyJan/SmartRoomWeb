@@ -1,0 +1,88 @@
+/* src/Modal.css */
+.modal {
+    display: flex; /* Use flexbox for centering */
+    position: fixed;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+
+.modal-content {
+    display: flex;
+    // flex-direction: row;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px; /* Optional max width */
+    height: 40vh;
+    animation: fadeIn 0.3s ease-in;
+    border-radius: 5px;
+    p{
+        font-size: small;
+        color: #888;
+        font-style: italic;
+        align-self: flex-start;
+        margin-left: 2vh;
+    }
+    .btn_close{
+        // background-color: pink;
+        color: #aaa;
+        align-self: flex-end;
+        cursor: pointer;
+    }
+    .btn_close:hover,.btn_close:focus{
+        color: black;
+        text-decoration: none;
+    }
+    .output{
+        border: solid 1px #aaa;
+        padding: 2px 10px 0;
+        border-radius: 5px;
+        }
+    .modalBody{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    // background-color: pink;
+        width: 100%;
+        .column{
+            font-weight: 800;
+            // background-color: red;
+        }
+        .value{
+            // background-color: violet;
+        }
+     
+        div{
+            font-size: medium;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            // align-items: center;
+        }
+    }
+    // .close {
+    //     color: red;
+    //     // float: right;
+    //     font-size: 28px;
+    //     font-weight: bold;
+    //     cursor: pointer;
+    
+    // }
+    
+    // .close:hover,
+    // .close:focus {
+    //     color: black;
+    //     text-decoration: none;
+    // }
+}
+
+

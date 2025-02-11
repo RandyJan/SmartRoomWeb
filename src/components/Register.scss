@@ -3,24 +3,43 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 50vh;
-    height: 60vh;
+    height: 63vh;
     border-radius:10px ;
+    animation: fadeIn 0.5s ease-in-out;
     .inputCont{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
         width: 45vh;
+        // background-color: red;
         font-size: 3vh;
         // border: solid 1px red;
         input{
             font-size: 3vh;
-            height: 5vh;
+            height: 4vh;
             width: 100%;
             border-radius: 5px;
+        }
+    }
+    h2{
+        // background-color: red;
+        text-align: center;
+        color: purple;
+        font-weight: 1000;
+    }
+    .btn_return{
+        margin-left: 30px ;
+        // background-color: red;
+        width: 100%;
+        color: #aaa;
+        :hover{
+            color: purple;
+            cursor: pointer;
         }
     }
   

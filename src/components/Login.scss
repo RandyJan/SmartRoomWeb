@@ -8,7 +8,8 @@
         align-items: center;
         width: 50vh;
         height: 50vh;
-        border-radius:10px ;
+        border-radius:5px ;
+        animation: fadeIn 0.5s ease-in-out;
         .inputCont{
             display: flex;
             flex-direction: column;
@@ -24,7 +25,27 @@
                 border-radius: 5px;
             }
         }
-      
+        .server-settings{
+            display: flex;
+            flex-direction: row;
+            margin-right:5px;
+            margin-bottom: 5px;
+            justify-content: flex-end;
+            // background-color: red;
+            width: 100%;
+            color:#aaa;
+            :hover{
+                color: purple;
+                cursor: pointer;
+            }
+        }
+  
+      h2{
+        color: purple;
+        font-weight: bolder;
+        // background-color: red;
+        text-align: center;
+      }
     }
 
 
