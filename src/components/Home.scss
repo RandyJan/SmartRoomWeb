@@ -51,6 +51,10 @@
         flex-wrap: wrap;
         margin: 0;
         gap: 3px;
+        .loading{
+            font-size: 2vh;
+            color: white;
+        }
         .sensorCard{
             width: 25vh;
             height: 25vh;
@@ -70,6 +74,23 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+            }
+            .cardHeader{
+                width: 100%;
+                .roomState{
+                    // position: relative;
+                    display: flex;
+                    flex-direction:row;
+                    flex-wrap: wrap;
+                    margin: 0;
+                    padding: 0;
+                    // justify-content: space-evenly;
+                //    background-color: red;
+                   width: 100%;
+                    p{
+                        font-size: 1vh;
+                    }
+                }
             }
             .sensors{
                 // background-color: red;
@@ -103,6 +124,7 @@
                 color: white;
                 text-align: center;
                 height: 4vh;
+                border-radius: 5px;
                 // border-radius:100px;
                 // p{
                 //     padding: 0;
@@ -112,6 +134,11 @@
                 // :hover{
                     
                 // }
+                &:hover{
+                    border: solid 1px purple;
+                    color: purple;
+                    background-color: white;
+                }
             }
             &:hover{
                 background-color: white;

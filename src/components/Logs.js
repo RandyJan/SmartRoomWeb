@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear,faSignOut } from '@fortawesome/free-solid-svg-icons'; 
 import React, { useState,useEffect } from 'react';
-import { Link,useLocation  } from 'react-router-dom';
+import { Link,useLocation,useNavigate  } from 'react-router-dom';
 import Loader from 'react-loaders';
 import Sidebar from './SideBar';
 import './Logs.scss';
@@ -9,10 +9,16 @@ const Logs = () => {
     const [isNav,setisNav] = useState(false);
     const [loading, setLoading] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
       const handleClick = () => {
           setisNav(prev => !prev); 
   
   
+      };
+      const logOut=()=>{
+        localStorage.setItem('session',0);
+              localStorage.removeItem('userLogin');
+              navigate('/login');
       };
       useEffect(() => {
           const handleStart = () => setLoading(true);
@@ -28,7 +34,7 @@ const Logs = () => {
     <div className='topBarCont'>
             <div onClick={handleClick}><FontAwesomeIcon icon ={faGear} size='2x' /></div>
             <p>TERESA ORSINI HOMES</p>
-            <div> <li><Link to="/login"><FontAwesomeIcon icon ={faSignOut} size='2x' /></Link></li>
+            <div onClick={logOut}><FontAwesomeIcon icon ={faSignOut} size='2x' />
             </div>
         </div>
             <p className='title'>History</p>

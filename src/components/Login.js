@@ -26,7 +26,8 @@ const Login = ({setAuth}) => {
       });
       console.log(serverCreds);
       localStorage.setItem('session', 1);
-      localStorage.setItem('userLogin', response.data.data);
+      const creds = JSON.stringify(response.data.data)
+      localStorage.setItem('userLogin', creds);
       navigate('/')
       console.log('User:', response.data);
       setAuth(1);

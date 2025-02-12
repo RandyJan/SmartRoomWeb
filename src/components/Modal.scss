@@ -23,15 +23,9 @@
     width: 80%; /* Could be more or less, depending on screen size */
     max-width: 500px; /* Optional max width */
     height: 40vh;
-    animation: fadeIn 0.3s ease-in;
+    animation: fadeIn 0.1s ease-in;
     border-radius: 5px;
-    p{
-        font-size: small;
-        color: #888;
-        font-style: italic;
-        align-self: flex-start;
-        margin-left: 2vh;
-    }
+
     .btn_close{
         // background-color: pink;
         color: #aaa;
@@ -68,7 +62,12 @@
             justify-content: center;
             // align-items: center;
         }
+        p{
+            color: black;
+            font-style: normal;
+        }
     }
+
     // .close {
     //     color: red;
     //     // float: right;

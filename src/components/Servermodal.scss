@@ -24,7 +24,9 @@
     h2 {
       margin-bottom: 15px;
     }
-  
+  h3{
+    color: purple;
+  }
     input {
       padding: 10px;
       margin-bottom: 15px;
@@ -32,6 +34,13 @@
       border-radius: 4px;
       width: 90%;
     }
+    p{
+      font-size: small;
+      color: #888;
+      font-style: italic;
+      align-self: flex-start;
+      margin-left: 2vh;
+  }
   
     // button {
     //   padding: 10px 15px;
