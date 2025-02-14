@@ -6,6 +6,8 @@ import './Login.scss';
 import Servermodal from './Servermodal';
 import axios from 'axios';
 import { useNavigate  } from 'react-router-dom';
+import Savelogs from './Savelogs';
+
 
 const Login = ({setAuth}) => {
   const [email, setEmail] = useState('');
@@ -29,7 +31,15 @@ const Login = ({setAuth}) => {
       const creds = JSON.stringify(response.data.data)
       localStorage.setItem('userLogin', creds);
       navigate('/')
+  const userCredentials = JSON.parse(localStorage.getItem('userLogin')) || [];
+      var usern = userCredentials['name'];
       console.log('User:', response.data);
+      // const res = await axios.post('http://'+serverCreds+'/api/saveLogs',{
+      //   username:usern,
+      //   activity:"Logged in."
+
+      // });
+      await Savelogs.saveLog(userCredentials['name'],'Logged in');
       setAuth(1);
     } catch (err) {
       console.log(err)

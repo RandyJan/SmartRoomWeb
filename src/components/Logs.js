@@ -5,19 +5,22 @@ import { Link,useLocation,useNavigate  } from 'react-router-dom';
 import Loader from 'react-loaders';
 import Sidebar from './SideBar';
 import './Logs.scss';
+import Savelogs from './Savelogs';
 const Logs = () => {
     const [isNav,setisNav] = useState(false);
     const [loading, setLoading] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
+    const userCredentials = JSON.parse(localStorage.getItem('userLogin'));
       const handleClick = () => {
           setisNav(prev => !prev); 
   
   
       };
-      const logOut=()=>{
+      const logOut= async()=>{
         localStorage.setItem('session',0);
               localStorage.removeItem('userLogin');
+              await Savelogs.saveLog(userCredentials['name'],'Logged out');
               navigate('/login');
       };
       useEffect(() => {

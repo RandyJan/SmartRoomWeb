@@ -9,7 +9,7 @@ import Loader from 'react-loaders';
 import Modal from './Modal';
 import Login from './Login';
 import axios from 'axios';
-
+import Savelogs from './Savelogs';
 const Home = () => {
     const [isNav,setisNav] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -19,7 +19,8 @@ const Home = () => {
    const [sensorData,setSensorData]= useState({});  
    const [modalData, setModalData] = useState(null);
   const[roomState,setRoomstate] = useState('');
-
+  // const[usercreds,setusercreds]= useState({});
+const userCredentials = JSON.parse(localStorage.getItem('userLogin'));
 
   const handleRoom = (state)=>{
     setRoomstate(state);
@@ -33,16 +34,35 @@ useEffect(()=>{
               }
               const data = await response.json();
               setSensorData(data);
+              
+             
         }catch(error){
             console.log(error);
         }
     };
+
+    try{
+  
+    }catch(e){
+      console.log(e);
+    }
     const intervalId = setInterval(fetchData, 1000);
     return () => clearInterval(intervalId);
-},[]);
+},[sensorData]);
 
 
+useEffect(()=>{
+  const saveData = ()=>{
 
+    sensorData.forEach(e => {
+      if(e.temperature >= 24){
+         Savelogs.saveLog(userCredentials['name'],'Temperature too high.');
+      }
+      
+    });
+  }
+  saveData();
+},[sensorData]);
 
    useEffect(() => {  setIsAuthenticated(localStorage.getItem('session'));  }, [isAuthenticated]);
         const location = useLocation();
@@ -51,9 +71,11 @@ useEffect(()=>{
 
 
     };
-    const handleLogOut = ()=>{
+    const handleLogOut = async ()=>{
         localStorage.setItem('session',0);
         localStorage.removeItem('userLogin');
+
+      await Savelogs.saveLog(userCredentials['name'],'Logged out');
         navigate('/login');
     }
      useEffect(() => {
@@ -67,7 +89,9 @@ useEffect(()=>{
           }, [location]);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const openModal = (room,temp,hum,gas,motion) =>{
+    const openModal = async (room,temp,hum,gas,motion) =>{
+      await Savelogs.saveLog(userCredentials['name'],'Viewed room '+room);
+
         setModalData({room,temp,hum,gas,motion})
         setIsModalOpen(true);  
     } 

@@ -7,7 +7,7 @@ import './Settings.scss';
 import Loader from 'react-loaders';
 import Swal from 'sweetalert2';
 import axios from 'axios';
-
+import Savelogs from './Savelogs';
 const Settings = () => {
   const [loading, setLoading] = useState(false);
   const location = useLocation();
@@ -55,9 +55,10 @@ const clearInputs=()=>{
   setNewpw('');
     setConfpw('');
 }
-const logOut=()=>{
+const logOut= async()=>{
   localStorage.setItem('session',0);
         localStorage.removeItem('userLogin');
+       await Savelogs.saveLog(username,'Logged out');
         navigate('/login');
 }
 const changePassword = async () => {
@@ -103,6 +104,8 @@ const changePassword = async () => {
           icon: 'success',
           confirmButtonText: 'Okay'
         });
+       await Savelogs.saveLog(username,'Changed Password');
+
         clearInputs();
         logOut();
       }
