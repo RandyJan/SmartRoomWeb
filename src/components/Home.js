@@ -18,7 +18,13 @@ const Home = () => {
    const serverCreds = localStorage.getItem('serverCreds'); 
    const [sensorData,setSensorData]= useState({});  
    const [modalData, setModalData] = useState(null);
-  const[roomState,setRoomstate] = useState('');
+  const[roomState,setRoomstate] = useState(0);
+  const[currentTemp,setCurrentTemp]=useState(0);
+  const[currentHum,setCurrentHum]=useState(0);
+  const [currentGas,setCurrentGas]=useState(0);
+
+  const[currentData,setCurrentData]=useState({});
+const loggedRooms = new Set();
   // const[usercreds,setusercreds]= useState({});
 const userCredentials = JSON.parse(localStorage.getItem('userLogin'));
 
@@ -34,35 +40,89 @@ useEffect(()=>{
               }
               const data = await response.json();
               setSensorData(data);
-              
+              // console.log(data);
+              data.forEach(e => {
+                if(e.temperature >= 24){
+                   Savelogs.saveLog(userCredentials['name'],'Temperature too high.',e.room);
+                }
+                 if(e.temperature <= 15){
+                  Savelogs.saveLog(userCredentials['name'],'Temperature too low.',e.room);
+                } if(e.humidity <= 30){
+                  Savelogs.saveLog(userCredentials['name'],'Humidity too low.',e.room);
+                }
+                 if(e.humidity >=60){
+                  Savelogs.saveLog(userCredentials['name'],'Humidity too high.',e.room);
+                }
+                 if(e.smoke >0){ 
+                  Savelogs.saveLog(userCredentials['name'],'Smoke/Gas Detected.',e.room);
+                }
+                // else{
+                //   return;
+                // }
+              });
              
         }catch(error){
             console.log(error);
         }
     };
 
-    try{
-  
-    }catch(e){
-      console.log(e);
-    }
     const intervalId = setInterval(fetchData, 1000);
     return () => clearInterval(intervalId);
 },[sensorData]);
 
+// useEffect(()=>{
+//   const logsUpdate = ()=>{
+//     try{
+//       sensorData.forEach(e => {
+//         if(e.temperature >= 24){
+//            Savelogs.saveLog(userCredentials['name'],'Temperature too high.',e.room);
+//         }
+//          if(e.temperature <= 15){
+//           Savelogs.saveLog(userCredentials['name'],'Temperature too low.',e.room);
+//         } if(e.humidity <= 30){
+//           Savelogs.saveLog(userCredentials['name'],'Humidity too low.',e.room);
+//         }
+//          if(e.humidity >=60){
+//           Savelogs.saveLog(userCredentials['name'],'Humidity too high.',e.room);
+//         }
+//          if(e.smoke >0){ 
+//           Savelogs.saveLog(userCredentials['name'],'Smoke/Gas Detected.',e.room);
+//         }
 
-useEffect(()=>{
-  const saveData = ()=>{
-
-    sensorData.forEach(e => {
-      if(e.temperature >= 24){
-         Savelogs.saveLog(userCredentials['name'],'Temperature too high.');
-      }
-      
-    });
-  }
-  saveData();
-},[sensorData]);
+//       });
+//     }catch(error){
+//       console.log(error);
+//     }
+//   }
+  
+//   const intervalId = setInterval(logsUpdate, 5000);
+//   return () => clearInterval(intervalId);
+   
+// },[sensorData]);
+// useEffect(()=>{
+//   try{
+//     console.log(sensorData);
+//     const Jsonify = JSON.parse(sensorData);
+//     Jsonify.forEach(e => {
+//       if(e.temperature >= 24){
+//          Savelogs.saveLog(userCredentials['name'],'Temperature too high.',e.room);
+//       }
+//       if(e.temperature <= 15){
+//         Savelogs.saveLog(userCredentials['name','Temperature too low.',e.room]);
+//       }if(e.humidity <= 30){
+//         Savelogs.saveLog(userCredentials['name','Humidity too low.',e.room]);
+//       }
+//       if(e.humidity >=60){
+//         Savelogs.saveLog(userCredentials['name','Humidity too high.',e.room]);
+//       }
+//       if(e.smoke >0){ 
+//         Savelogs.saveLog(userCredentials['name','Smoke/Gas Detected.',e.room]);
+//       }
+//     });
+//   }catch(e){
+//     console.log(e);
+//   }
+// },[1000]);
 
    useEffect(() => {  setIsAuthenticated(localStorage.getItem('session'));  }, [isAuthenticated]);
         const location = useLocation();
@@ -90,7 +150,7 @@ useEffect(()=>{
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const openModal = async (room,temp,hum,gas,motion) =>{
-      await Savelogs.saveLog(userCredentials['name'],'Viewed room '+room);
+      await Savelogs.saveLog(userCredentials['name'],'Viewed room ',room);
 
         setModalData({room,temp,hum,gas,motion})
         setIsModalOpen(true);  
@@ -103,7 +163,7 @@ useEffect(()=>{
         <div className='topBarCont'>
             <div onClick={handleClick}><FontAwesomeIcon icon ={faGear} size='2x' /></div>
             <p>TERESA ORSINI HOMES</p>
-            <div onClick={handleLogOut}> <li><FontAwesomeIcon icon ={faSignOut} size='2x' /></li>
+            <div onClick={handleLogOut}> <FontAwesomeIcon icon ={faSignOut} size='2x' />
             </div>
         </div>
         <Modal isOpen={isModalOpen} onClose={closeModal} data={modalData} />
@@ -141,14 +201,14 @@ useEffect(()=>{
     </div>
   ))
 ) : (
-  <p className='loading'>Loading...</p> 
+  <Loader type='line-scale-pulse-out-rapid' />
 )}
            
            
             
            
         </div>
-        {loading && <Loader type='line-scale-pulse-out-rapid' />}
+        {/* {loading && <Loader type='line-scale-pulse-out-rapid' />} */}
   </div>
   ): (
     <Login setAuth={setIsAuthenticated}/>

@@ -29,7 +29,11 @@ const Modal = ({ isOpen, onClose,data }) => {
                 </div>
                 <p>System:</p>
                 <div className='output'>
-                    <p> it's advisable to leave the premise immediately to avoid harmful outcome</p>
+                    <p> {data.temp <= 15?"* Extended exposure to cold can result in hypothermia, characterized by shivering, confusion, and fatigue. Seek warmth immediately."
+                    :data.temp >=24?"* Prolonged exposure to extreme heat can cause heat stroke, a life-threatening condition. Symptoms include high body temperature, confusion, and loss of consciousness. leave the premises immediately.":""}</p>
+                    <p>{data.hum <= 30?"* Low humidity may exacerbate respiratory problems, causing discomfort for individuals with asthma or allergies.":data.hum > 60?
+                    "* Excess moisture can promote the growth of mold and mildew, which can lead to health issues and damage to property.":""}</p>
+                    <p>{data.gas >0?"* Potential gas leakage or fire in this room. Immediate response needed.":""}</p>
                 </div>
             </div>
         </div>
