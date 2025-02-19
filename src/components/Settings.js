@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear, faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { faList,faGear, faSignOut } from '@fortawesome/free-solid-svg-icons';
 import React, { useState,useEffect,useRef } from 'react';
 import Sidebar from './SideBar';
 import { Link,useLocation,useNavigate  } from 'react-router-dom';
@@ -143,7 +143,7 @@ useEffect(()=>{
     <Sidebar a={isNav} onClose={() => setisNav(false)} />
 
     <div className='topBarCont'>
-      <div onClick={handleClick}><FontAwesomeIcon icon={faGear} size='2x' /></div>
+      <div onClick={handleClick}><FontAwesomeIcon icon={faList} size='2x' /></div>
       <p>TERESA ORSINI HOMES</p>
       <div onClick={logOut}> <FontAwesomeIcon icon={faSignOut} size='2x' />
       </div>
@@ -171,7 +171,7 @@ useEffect(()=>{
         <button className='buttonA btn_save' onClick={changePassword}>Save</button>
       </div>
     </div>
-  </div>;
+  </div>
   {loading && <Loader type='line-scale-pulse-out-rapid' />}
     </>
 };

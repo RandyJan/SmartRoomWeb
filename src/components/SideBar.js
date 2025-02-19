@@ -4,7 +4,7 @@ import React, { useState,useEffect  } from 'react'; // Correct
 import { Link } from 'react-router-dom';
 import './SideBar.scss'; // Importing CSS for styling
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClose,faHouse } from '@fortawesome/free-solid-svg-icons'; //
+import { faClose,faHouse,faBuilding,faGears,faHistory } from '@fortawesome/free-solid-svg-icons'; //
 
 const Sidebar = ({a=false,onClose}) => {
  const [isActive, setIsActive] = useState(a);
@@ -28,14 +28,14 @@ useEffect(()=>{
   return (
     <div className={isActive ?'sidebar slide-in':'close'} >
         <div onClick={onClose}><FontAwesomeIcon icon ={faClose} size='2x' /></div>
-      <h2><FontAwesomeIcon icon ={faHouse} size='2x' /> T O H</h2>
+      <h2><FontAwesomeIcon icon ={faBuilding} size='2x' /> T O H</h2>
      
       <ul>
       <li>{username}</li>
       <li>{position}</li><br></br>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/settings">Settings</Link></li>
-        <li><Link to="/logs">History</Link></li>
+        <li><Link to="/"><FontAwesomeIcon icon = {faHouse}/> Dashboard</Link></li>
+        <li><Link to="/settings"><FontAwesomeIcon icon = {faGears}/> Settings</Link></li>
+        <li><Link to="/logs"><FontAwesomeIcon icon={faHistory}/> History</Link></li>
         {/* <li><Link to="/login">Log in</Link></li> */}
 
       </ul>

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear,faSignOut } from '@fortawesome/free-solid-svg-icons'; 
+import { faList,faGear,faSignOut } from '@fortawesome/free-solid-svg-icons'; 
 import React, { useState,useEffect } from 'react';
 import { Link,useLocation,useNavigate  } from 'react-router-dom';
 import Loader from 'react-loaders';
@@ -29,7 +29,7 @@ const Logs = () => {
             // if (!response.ok) {
             //     throw new Error('Network response was not ok');
             //   }
-              setTableData({});
+            setTableData({pdate:0,user_name:0,activity:0,room:0});
               Swal.fire({
                 icon:'success',
                 title:'Clear History',
@@ -87,7 +87,7 @@ const Logs = () => {
   return<> <div className='logs'>
     <Sidebar a ={isNav} onClose={() => setisNav(false)} />
     <div className='topBarCont'>
-            <div onClick={handleClick}><FontAwesomeIcon icon ={faGear} size='2x' /></div>
+            <div onClick={handleClick}><FontAwesomeIcon icon ={faList} size='2x' /></div>
             <p>TERESA ORSINI HOMES</p>
             <div onClick={logOut}><FontAwesomeIcon icon ={faSignOut} size='2x' />
             </div>
@@ -118,7 +118,7 @@ const Logs = () => {
         </table>
         </div>
         <div className='btn_clear' onClick={handleClearLogs}><p>Clear</p></div>
-  </div>;
+  </div>
           {/* {loading && <Loader type='line-scale-pulse-out-rapid' />} */}
   </>
 };

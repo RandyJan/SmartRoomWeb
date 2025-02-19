@@ -11,7 +11,7 @@ const Modal = ({ isOpen, onClose,data }) => {
         <div className="modal">
             <div className="modal-content">
                 <div className='btn_close' onClick={onClose}><FontAwesomeIcon icon ={faClose} size='2x' /></div>
-                <h2>Room {data.room}</h2>
+                <h3>Room {data.room}</h3>
                 <div className='modalBody'>
                 <div className='column'>
                     <p>Temperature:</p>

@@ -5,7 +5,7 @@ import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate  } from 'react-router-dom';
 import axios from 'axios';
-
+import Swal from 'sweetalert2';
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -32,7 +32,11 @@ const Register = () => {
       console.log(serverCreds);
       localStorage.setItem('session', 1);
       localStorage.setItem('userLogin', response.data.data);
-      navigate('/')
+      await Swal.fire({
+        title:"Registration Success",
+        icon:"success"
+      });
+      navigate('/login');
       console.log('User:', response.data);
     } catch (err) {
       console.log(err)
@@ -48,7 +52,7 @@ const Register = () => {
       <h1>TERESA ORSINI HOMES</h1>
 
             <div className='RegDiv'>
-          <div className='btn_return' onClick={handleReturn}><FontAwesomeIcon icon ={faArrowLeft}  /></div>
+        <div className='btn_return'>  <div  onClick={handleReturn}><FontAwesomeIcon icon ={faArrowLeft}  /></div></div>
     <form onSubmit={handleSubmit}>
     {error && <p className="error">{error}</p>}
 

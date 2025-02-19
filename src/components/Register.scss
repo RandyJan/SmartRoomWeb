@@ -5,25 +5,30 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50vh;
-    height: 63vh;
+    width: fit-content;
+    height: fit-content;
     border-radius:10px ;
     animation: fadeIn 0.5s ease-in-out;
+    box-shadow: 0 0 20px black;
     .inputCont{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        width: 45vh;
+        width: 43vh;
         // background-color: red;
         font-size: 3vh;
+        padding: 3px;
         // border: solid 1px red;
+        padding: 10px 0;
         input{
             font-size: 3vh;
             height: 4vh;
-            width: 100%;
+            width: 98%;
             border-radius: 5px;
+            // margin: 0px 3px;
+
         }
     }
     h2{
@@ -36,7 +41,16 @@
         margin-left: 30px ;
         // background-color: red;
         width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
         color: #aaa;
+        div{
+            width: fit-content;
+            height: fit-content;
+            // background-color: red;
+            margin-top: 5px;
+        }
         :hover{
             color: purple;
             cursor: pointer;

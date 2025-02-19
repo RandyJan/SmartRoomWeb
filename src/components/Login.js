@@ -84,9 +84,10 @@ const Login = ({setAuth}) => {
     </form>
     {error && <p className="error">{error}</p>}
 
-    <div className='server-settings' onClick={handleOpenModal}><FontAwesomeIcon icon ={faUserGear}  /></div>
-    <Servermodal isOpen={isModalOpen} onClose={handleCloseModal} />
+   <div className='server-settings'> <div  onClick={handleOpenModal}><FontAwesomeIcon icon ={faUserGear}  /></div>
     </div>
+    </div>
+    <Servermodal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
 
   );

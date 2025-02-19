@@ -1,7 +1,7 @@
 // src/pages/Home.js
 import './Home.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear,faSignOut,faArrowRight,faSmoking,faWater,faTemperatureArrowUp,faTemperatureArrowDown,faTemperatureHalf } from '@fortawesome/free-solid-svg-icons'; 
+import { faList,faGear,faSignOut,faArrowRight,faSmoking,faWater,faTemperatureArrowUp,faTemperatureArrowDown,faTemperatureHalf } from '@fortawesome/free-solid-svg-icons'; 
 import Sidebar from './SideBar';
 import React, { useState,useEffect } from 'react';
 import { Link,useLocation,useNavigate  } from 'react-router-dom';
@@ -161,7 +161,7 @@ useEffect(()=>{
             <Sidebar a ={isNav} onClose={() => setisNav(false)} />
     
         <div className='topBarCont'>
-            <div onClick={handleClick}><FontAwesomeIcon icon ={faGear} size='2x' /></div>
+            <div onClick={handleClick}><FontAwesomeIcon icon ={faList} size='2x' /></div>
             <p>TERESA ORSINI HOMES</p>
             <div onClick={handleLogOut}> <FontAwesomeIcon icon ={faSignOut} size='2x' />
             </div>

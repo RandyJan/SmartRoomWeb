@@ -19,7 +19,7 @@ const Servermodal = ({ isOpen, onClose }) => {
     <div className="modal-overlay">
       <div className="modal-content">
         <div className='btn_close' onClick={onClose}><FontAwesomeIcon icon ={faClose}  /></div>
-        <h3>Input Server Endpoint</h3>
+        <h2>Input Server Endpoint</h2>
         <p>Current: {current}</p>
         <input type="text" placeholder="Ex. 192.168.12.9:9090" onChange ={handleInputChange}/>
         <button className='buttonA' onClick={saveServer} >Enter</button>
