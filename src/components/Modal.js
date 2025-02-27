@@ -27,6 +27,7 @@ const Modal = ({ isOpen, onClose,data }) => {
                     <p>{data.motion == 1?'Theres movement':'No movement'}</p>
                 </div>
                 </div>
+                <div className='output-div'>
                 <p>System:</p>
                 <div className='output'>
                     <p> {data.temp <= 15?"* Extended exposure to cold can result in hypothermia, characterized by shivering, confusion, and fatigue. Seek warmth immediately."
@@ -35,6 +36,7 @@ const Modal = ({ isOpen, onClose,data }) => {
                     "* Excess moisture can promote the growth of mold and mildew, which can lead to health issues and damage to property.":""}</p>
                     <p>{data.gas >0?"* Potential gas leakage or fire in this room. Immediate response needed.":""}</p>
                 </div>
+            </div>
             </div>
         </div>
     );
